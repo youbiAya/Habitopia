@@ -14,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(HabitAdapter());
+  await Hive.openBox('themeBox');
   var boxHabit = await Hive.openBox<Habit>('habitBox');
   print('Habits before running app: ${boxHabit.values.toList()}');
 
